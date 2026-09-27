@@ -2,7 +2,7 @@
 
 Requires a Professional (Business or Creator) account and a long-lived user token in IG_ACCESS_TOKEN
 with instagram_business_basic (+ instagram_business_manage_comments for comment reads/replies).
-Replies go to the approval queue; POST /{comment-id}/replies is deliberately not implemented.
+Replies go to the approval queue; the write endpoint for comment replies is deliberately not implemented.
 """
 from __future__ import annotations
 

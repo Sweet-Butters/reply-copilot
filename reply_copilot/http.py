@@ -37,12 +37,13 @@ transport: Transport = _urllib_transport
 
 
 def request_json(method: str, url: str, *, headers: dict | None = None, body: dict | None = None,
-                 timeout: float = 30.0, retries: int = 3, sleep=time.sleep) -> tuple[dict, int]:
+                 timeout: float = 30.0, retries: int = 3, sleep=None) -> tuple[dict, int]:
     """Send a JSON request; return (parsed body, elapsed ms of the successful attempt)."""
     data = json.dumps(body, ensure_ascii=False).encode("utf-8") if body is not None else None
     hdrs = {"Accept": "application/json", **(headers or {})}
     if data is not None:
         hdrs.setdefault("Content-Type", "application/json; charset=utf-8")
+    sleep = sleep or time.sleep
     last = ""
     for attempt in range(retries + 1):
         t0 = time.perf_counter()
