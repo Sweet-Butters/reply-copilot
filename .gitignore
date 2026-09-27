@@ -7,4 +7,3 @@ data/
 .env
 client_secret*.json
 token*.json
-eval/results/*real*
