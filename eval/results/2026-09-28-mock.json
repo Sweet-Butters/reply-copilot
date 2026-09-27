@@ -1,0 +1,1108 @@
+{
+  "mode": "mock",
+  "run_at": "2026-09-28T01:03:08",
+  "judge": "mock-judge/rules-v1",
+  "drafter": "mock-drafter/templates-v1",
+  "fixtures": 10,
+  "summary": {
+    "judge_first": {
+      "messages": 10,
+      "drafted": 7,
+      "wasted_drafts_on_no_reply": 0,
+      "correct_skips": 3,
+      "missed_needed_replies": 0,
+      "errors": 0,
+      "calls": {
+        "judge": 10,
+        "draft": 7,
+        "rank": 7
+      },
+      "input_tokens": 3401,
+      "output_tokens": 493,
+      "cost_usd": 0.0,
+      "latency_ms_per_message": {
+        "p50": 0,
+        "mean": 0,
+        "max": 0
+      },
+      "high_tension_warned": [
+        "fx09-grade-complaint"
+      ],
+      "action_agreement": 1.0
+    },
+    "draft_direct": {
+      "messages": 10,
+      "drafted": 10,
+      "wasted_drafts_on_no_reply": 3,
+      "correct_skips": 0,
+      "missed_needed_replies": 0,
+      "errors": 0,
+      "calls": {
+        "judge": 0,
+        "draft": 10,
+        "rank": 0
+      },
+      "input_tokens": 3418,
+      "output_tokens": 310,
+      "cost_usd": 0.0,
+      "latency_ms_per_message": {
+        "p50": 0,
+        "mean": 0,
+        "max": 0
+      },
+      "high_tension_warned": []
+    }
+  },
+  "items": [
+    {
+      "id": "fx01-professor-meeting",
+      "expect_reply": "yes",
+      "expected_actions": [
+        "accept",
+        "answer"
+      ],
+      "judge_first": {
+        "message_id": "fx01-professor-meeting",
+        "pipeline": "judge_first",
+        "decision": "draft",
+        "judgment": {
+          "needs_reply": 0.9,
+          "reply_now": 0.8,
+          "spam": 0.05,
+          "abusive": 0.03,
+          "intent": "scheduling",
+          "sender_wants": "decision",
+          "best_action": "accept",
+          "tension": 1.0,
+          "confidence": {
+            "intent": 0.5,
+            "sender_wants": 0.5,
+            "best_action": 0.5,
+            "tension": 0.5
+          }
+        },
+        "candidates": [
+          {
+            "text": "좋습니다. 혹시 [날짜/시간]도 가능하시면 그때로 부탁드리고, 어려우시면 말씀하신 일정으로 맞추겠습니다.",
+            "score": 0.6
+          },
+          {
+            "text": "말씀 주셔서 감사합니다. 제안해 주신 일정 괜찮습니다. [날짜/시간]으로 확정해 주시면 준비하겠습니다.",
+            "score": 0.3
+          },
+          {
+            "text": "네, 가능합니다. [날짜/시간]에 뵙겠습니다.",
+            "score": 0.1
+          }
+        ],
+        "best": "좋습니다. 혹시 [날짜/시간]도 가능하시면 그때로 부탁드리고, 어려우시면 말씀하신 일정으로 맞추겠습니다.",
+        "warnings": [],
+        "usage": [
+          {
+            "role": "judge",
+            "provider": "mock-judge",
+            "model": "rules-v1",
+            "ms": 0,
+            "input_tokens": 69,
+            "output_tokens": 0,
+            "cost_usd": 0.0,
+            "ok": true
+          },
+          {
+            "role": "draft",
+            "provider": "mock-drafter",
+            "model": "templates-v1",
+            "ms": 0,
+            "input_tokens": 362,
+            "output_tokens": 69,
+            "cost_usd": 0.0,
+            "ok": true
+          },
+          {
+            "role": "rank",
+            "provider": "mock-judge",
+            "model": "rules-v1",
+            "ms": 0,
+            "input_tokens": 69,
+            "output_tokens": 0,
+            "cost_usd": 0.0,
+            "ok": true
+          }
+        ],
+        "total_ms": 0,
+        "total_cost_usd": 0.0
+      },
+      "draft_direct": {
+        "message_id": "fx01-professor-meeting",
+        "pipeline": "draft_direct",
+        "decision": "draft",
+        "judgment": null,
+        "candidates": [
+          {
+            "text": "메시지 감사합니다. 확인 후 답변드리겠습니다.",
+            "score": null
+          },
+          {
+            "text": "연락 주셔서 감사합니다. 내용 잘 읽었습니다.",
+            "score": null
+          },
+          {
+            "text": "감사합니다! 확인했습니다.",
+            "score": null
+          }
+        ],
+        "best": "메시지 감사합니다. 확인 후 답변드리겠습니다.",
+        "warnings": [],
+        "usage": [
+          {
+            "role": "draft",
+            "provider": "mock-drafter",
+            "model": "templates-v1",
+            "ms": 0,
+            "input_tokens": 362,
+            "output_tokens": 31,
+            "cost_usd": 0.0,
+            "ok": true
+          }
+        ],
+        "total_ms": 0,
+        "total_cost_usd": 0.0
+      }
+    },
+    {
+      "id": "fx02-ai-lecture-inquiry",
+      "expect_reply": "yes",
+      "expected_actions": [
+        "ask_clarification",
+        "accept",
+        "answer"
+      ],
+      "judge_first": {
+        "message_id": "fx02-ai-lecture-inquiry",
+        "pipeline": "judge_first",
+        "decision": "draft",
+        "judgment": {
+          "needs_reply": 0.9,
+          "reply_now": 0.2,
+          "spam": 0.05,
+          "abusive": 0.03,
+          "intent": "invitation",
+          "sender_wants": "decision",
+          "best_action": "ask_clarification",
+          "tension": 1.0,
+          "confidence": {
+            "intent": 0.5,
+            "sender_wants": 0.5,
+            "best_action": 0.5,
+            "tension": 0.5
+          }
+        },
+        "candidates": [
+          {
+            "text": "제안 감사합니다. 진행 여부를 판단하려면 [구체적 내용]이 필요합니다. 자료를 보내주시면 검토 후 회신드리겠습니다.",
+            "score": 0.6
+          },
+          {
+            "text": "연락 주셔서 감사합니다. 검토를 위해 [일정], [대상], [조건]을 조금 더 알려주실 수 있을까요?",
+            "score": 0.3
+          },
+          {
+            "text": "관심 가져주셔서 감사합니다. 원하시는 [범위]와 [일정]을 알려주시면 가능 여부 말씀드리겠습니다.",
+            "score": 0.1
+          }
+        ],
+        "best": "제안 감사합니다. 진행 여부를 판단하려면 [구체적 내용]이 필요합니다. 자료를 보내주시면 검토 후 회신드리겠습니다.",
+        "warnings": [],
+        "usage": [
+          {
+            "role": "judge",
+            "provider": "mock-judge",
+            "model": "rules-v1",
+            "ms": 0,
+            "input_tokens": 97,
+            "output_tokens": 0,
+            "cost_usd": 0.0,
+            "ok": true
+          },
+          {
+            "role": "draft",
+            "provider": "mock-drafter",
+            "model": "templates-v1",
+            "ms": 0,
+            "input_tokens": 385,
+            "output_tokens": 87,
+            "cost_usd": 0.0,
+            "ok": true
+          },
+          {
+            "role": "rank",
+            "provider": "mock-judge",
+            "model": "rules-v1",
+            "ms": 0,
+            "input_tokens": 87,
+            "output_tokens": 0,
+            "cost_usd": 0.0,
+            "ok": true
+          }
+        ],
+        "total_ms": 0,
+        "total_cost_usd": 0.0
+      },
+      "draft_direct": {
+        "message_id": "fx02-ai-lecture-inquiry",
+        "pipeline": "draft_direct",
+        "decision": "draft",
+        "judgment": null,
+        "candidates": [
+          {
+            "text": "메시지 감사합니다. 확인 후 답변드리겠습니다.",
+            "score": null
+          },
+          {
+            "text": "연락 주셔서 감사합니다. 내용 잘 읽었습니다.",
+            "score": null
+          },
+          {
+            "text": "감사합니다! 확인했습니다.",
+            "score": null
+          }
+        ],
+        "best": "메시지 감사합니다. 확인 후 답변드리겠습니다.",
+        "warnings": [],
+        "usage": [
+          {
+            "role": "draft",
+            "provider": "mock-drafter",
+            "model": "templates-v1",
+            "ms": 0,
+            "input_tokens": 385,
+            "output_tokens": 31,
+            "cost_usd": 0.0,
+            "ok": true
+          }
+        ],
+        "total_ms": 0,
+        "total_cost_usd": 0.0
+      }
+    },
+    {
+      "id": "fx03-decline-volunteer",
+      "expect_reply": "yes",
+      "expected_actions": [
+        "decline_politely"
+      ],
+      "judge_first": {
+        "message_id": "fx03-decline-volunteer",
+        "pipeline": "judge_first",
+        "decision": "draft",
+        "judgment": {
+          "needs_reply": 0.85,
+          "reply_now": 0.8,
+          "spam": 0.05,
+          "abusive": 0.03,
+          "intent": "request",
+          "sender_wants": "decision",
+          "best_action": "decline_politely",
+          "tension": 1.0,
+          "confidence": {
+            "intent": 0.5,
+            "sender_wants": 0.5,
+            "best_action": 0.5,
+            "tension": 0.5
+          }
+        },
+        "candidates": [
+          {
+            "text": "좋은 기회 주셔서 감사하지만 이번에는 어렵겠습니다. 혹시 [대안]이 도움이 된다면 말씀드리겠습니다.",
+            "score": 0.6
+          },
+          {
+            "text": "제안 감사합니다. 아쉽지만 이번에는 일정상 참여가 어렵습니다. 다음 기회에 꼭 함께하고 싶습니다.",
+            "score": 0.3
+          },
+          {
+            "text": "연락 주셔서 감사합니다. 해당 기간에 이미 잡힌 일정이 있어 이번에는 정중히 사양하겠습니다.",
+            "score": 0.1
+          }
+        ],
+        "best": "좋은 기회 주셔서 감사하지만 이번에는 어렵겠습니다. 혹시 [대안]이 도움이 된다면 말씀드리겠습니다.",
+        "warnings": [],
+        "usage": [
+          {
+            "role": "judge",
+            "provider": "mock-judge",
+            "model": "rules-v1",
+            "ms": 0,
+            "input_tokens": 71,
+            "output_tokens": 0,
+            "cost_usd": 0.0,
+            "ok": true
+          },
+          {
+            "role": "draft",
+            "provider": "mock-drafter",
+            "model": "templates-v1",
+            "ms": 0,
+            "input_tokens": 359,
+            "output_tokens": 79,
+            "cost_usd": 0.0,
+            "ok": true
+          },
+          {
+            "role": "rank",
+            "provider": "mock-judge",
+            "model": "rules-v1",
+            "ms": 0,
+            "input_tokens": 79,
+            "output_tokens": 0,
+            "cost_usd": 0.0,
+            "ok": true
+          }
+        ],
+        "total_ms": 0,
+        "total_cost_usd": 0.0
+      },
+      "draft_direct": {
+        "message_id": "fx03-decline-volunteer",
+        "pipeline": "draft_direct",
+        "decision": "draft",
+        "judgment": null,
+        "candidates": [
+          {
+            "text": "메시지 감사합니다. 확인 후 답변드리겠습니다.",
+            "score": null
+          },
+          {
+            "text": "연락 주셔서 감사합니다. 내용 잘 읽었습니다.",
+            "score": null
+          },
+          {
+            "text": "감사합니다! 확인했습니다.",
+            "score": null
+          }
+        ],
+        "best": "메시지 감사합니다. 확인 후 답변드리겠습니다.",
+        "warnings": [],
+        "usage": [
+          {
+            "role": "draft",
+            "provider": "mock-drafter",
+            "model": "templates-v1",
+            "ms": 0,
+            "input_tokens": 359,
+            "output_tokens": 31,
+            "cost_usd": 0.0,
+            "ok": true
+          }
+        ],
+        "total_ms": 0,
+        "total_cost_usd": 0.0
+      }
+    },
+    {
+      "id": "fx04-yt-spam",
+      "expect_reply": "no",
+      "expected_actions": [
+        "ignore"
+      ],
+      "judge_first": {
+        "message_id": "fx04-yt-spam",
+        "pipeline": "judge_first",
+        "decision": "skip_spam",
+        "judgment": {
+          "needs_reply": 0.05,
+          "reply_now": 0.2,
+          "spam": 0.95,
+          "abusive": 0.03,
+          "intent": "promotion",
+          "sender_wants": "nothing",
+          "best_action": "ignore",
+          "tension": 0.0,
+          "confidence": {
+            "intent": 0.5,
+            "sender_wants": 0.5,
+            "best_action": 0.5,
+            "tension": 0.5
+          }
+        },
+        "candidates": [],
+        "best": null,
+        "warnings": [],
+        "usage": [
+          {
+            "role": "judge",
+            "provider": "mock-judge",
+            "model": "rules-v1",
+            "ms": 0,
+            "input_tokens": 37,
+            "output_tokens": 0,
+            "cost_usd": 0.0,
+            "ok": true
+          }
+        ],
+        "total_ms": 0,
+        "total_cost_usd": 0.0
+      },
+      "draft_direct": {
+        "message_id": "fx04-yt-spam",
+        "pipeline": "draft_direct",
+        "decision": "draft",
+        "judgment": null,
+        "candidates": [
+          {
+            "text": "메시지 감사합니다. 확인 후 답변드리겠습니다.",
+            "score": null
+          },
+          {
+            "text": "연락 주셔서 감사합니다. 내용 잘 읽었습니다.",
+            "score": null
+          },
+          {
+            "text": "감사합니다! 확인했습니다.",
+            "score": null
+          }
+        ],
+        "best": "메시지 감사합니다. 확인 후 답변드리겠습니다.",
+        "warnings": [],
+        "usage": [
+          {
+            "role": "draft",
+            "provider": "mock-drafter",
+            "model": "templates-v1",
+            "ms": 0,
+            "input_tokens": 337,
+            "output_tokens": 31,
+            "cost_usd": 0.0,
+            "ok": true
+          }
+        ],
+        "total_ms": 0,
+        "total_cost_usd": 0.0
+      }
+    },
+    {
+      "id": "fx05-yt-rude",
+      "expect_reply": "no",
+      "expected_actions": [
+        "ignore"
+      ],
+      "judge_first": {
+        "message_id": "fx05-yt-rude",
+        "pipeline": "judge_first",
+        "decision": "skip_abusive",
+        "judgment": {
+          "needs_reply": 0.2,
+          "reply_now": 0.2,
+          "spam": 0.05,
+          "abusive": 0.9,
+          "intent": "complaint",
+          "sender_wants": "nothing",
+          "best_action": "ignore",
+          "tension": 8.0,
+          "confidence": {
+            "intent": 0.5,
+            "sender_wants": 0.5,
+            "best_action": 0.5,
+            "tension": 0.5
+          }
+        },
+        "candidates": [],
+        "best": null,
+        "warnings": [
+          "악성 댓글로 보임: 답하지 말고 숨김/신고를 검토하세요."
+        ],
+        "usage": [
+          {
+            "role": "judge",
+            "provider": "mock-judge",
+            "model": "rules-v1",
+            "ms": 0,
+            "input_tokens": 13,
+            "output_tokens": 0,
+            "cost_usd": 0.0,
+            "ok": true
+          }
+        ],
+        "total_ms": 0,
+        "total_cost_usd": 0.0
+      },
+      "draft_direct": {
+        "message_id": "fx05-yt-rude",
+        "pipeline": "draft_direct",
+        "decision": "draft",
+        "judgment": null,
+        "candidates": [
+          {
+            "text": "메시지 감사합니다. 확인 후 답변드리겠습니다.",
+            "score": null
+          },
+          {
+            "text": "연락 주셔서 감사합니다. 내용 잘 읽었습니다.",
+            "score": null
+          },
+          {
+            "text": "감사합니다! 확인했습니다.",
+            "score": null
+          }
+        ],
+        "best": "메시지 감사합니다. 확인 후 답변드리겠습니다.",
+        "warnings": [],
+        "usage": [
+          {
+            "role": "draft",
+            "provider": "mock-drafter",
+            "model": "templates-v1",
+            "ms": 0,
+            "input_tokens": 313,
+            "output_tokens": 31,
+            "cost_usd": 0.0,
+            "ok": true
+          }
+        ],
+        "total_ms": 0,
+        "total_cost_usd": 0.0
+      }
+    },
+    {
+      "id": "fx06-yt-genuine-question",
+      "expect_reply": "yes",
+      "expected_actions": [
+        "answer"
+      ],
+      "judge_first": {
+        "message_id": "fx06-yt-genuine-question",
+        "pipeline": "judge_first",
+        "decision": "draft",
+        "judgment": {
+          "needs_reply": 0.85,
+          "reply_now": 0.2,
+          "spam": 0.05,
+          "abusive": 0.03,
+          "intent": "question",
+          "sender_wants": "information",
+          "best_action": "answer",
+          "tension": 1.0,
+          "confidence": {
+            "intent": 0.5,
+            "sender_wants": 0.5,
+            "best_action": 0.5,
+            "tension": 0.5
+          }
+        },
+        "candidates": [
+          {
+            "text": "문의 주셔서 감사합니다. 확인해 보고 정확한 내용으로 다시 답변드리겠습니다.",
+            "score": 0.6
+          },
+          {
+            "text": "질문 감사합니다. LLM 에이전트 30분 만에 만들기에 대해 답변드리면, [답변 내용]입니다.",
+            "score": 0.3
+          },
+          {
+            "text": "좋은 질문이에요! 간단히 말씀드리면 [답변 내용]입니다. 더 궁금한 점 있으면 편하게 물어봐 주세요.",
+            "score": 0.1
+          }
+        ],
+        "best": "문의 주셔서 감사합니다. 확인해 보고 정확한 내용으로 다시 답변드리겠습니다.",
+        "warnings": [],
+        "usage": [
+          {
+            "role": "judge",
+            "provider": "mock-judge",
+            "model": "rules-v1",
+            "ms": 0,
+            "input_tokens": 36,
+            "output_tokens": 0,
+            "cost_usd": 0.0,
+            "ok": true
+          },
+          {
+            "role": "draft",
+            "provider": "mock-drafter",
+            "model": "templates-v1",
+            "ms": 0,
+            "input_tokens": 336,
+            "output_tokens": 75,
+            "cost_usd": 0.0,
+            "ok": true
+          },
+          {
+            "role": "rank",
+            "provider": "mock-judge",
+            "model": "rules-v1",
+            "ms": 0,
+            "input_tokens": 75,
+            "output_tokens": 0,
+            "cost_usd": 0.0,
+            "ok": true
+          }
+        ],
+        "total_ms": 0,
+        "total_cost_usd": 0.0
+      },
+      "draft_direct": {
+        "message_id": "fx06-yt-genuine-question",
+        "pipeline": "draft_direct",
+        "decision": "draft",
+        "judgment": null,
+        "candidates": [
+          {
+            "text": "메시지 감사합니다. 확인 후 답변드리겠습니다.",
+            "score": null
+          },
+          {
+            "text": "연락 주셔서 감사합니다. 내용 잘 읽었습니다.",
+            "score": null
+          },
+          {
+            "text": "감사합니다! 확인했습니다.",
+            "score": null
+          }
+        ],
+        "best": "메시지 감사합니다. 확인 후 답변드리겠습니다.",
+        "warnings": [],
+        "usage": [
+          {
+            "role": "draft",
+            "provider": "mock-drafter",
+            "model": "templates-v1",
+            "ms": 0,
+            "input_tokens": 336,
+            "output_tokens": 31,
+            "cost_usd": 0.0,
+            "ok": true
+          }
+        ],
+        "total_ms": 0,
+        "total_cost_usd": 0.0
+      }
+    },
+    {
+      "id": "fx07-ig-thanks",
+      "expect_reply": "optional",
+      "expected_actions": [
+        "acknowledge"
+      ],
+      "judge_first": {
+        "message_id": "fx07-ig-thanks",
+        "pipeline": "judge_first",
+        "decision": "draft",
+        "judgment": {
+          "needs_reply": 0.4,
+          "reply_now": 0.8,
+          "spam": 0.05,
+          "abusive": 0.03,
+          "intent": "thanks_or_fyi",
+          "sender_wants": "acknowledgement",
+          "best_action": "acknowledge",
+          "tension": 1.0,
+          "confidence": {
+            "intent": 0.5,
+            "sender_wants": 0.5,
+            "best_action": 0.5,
+            "tension": 0.5
+          }
+        },
+        "candidates": [
+          {
+            "text": "봐주셔서 감사합니다. 다음에도 좋은 내용으로 찾아뵐게요.",
+            "score": 0.6
+          },
+          {
+            "text": "감사합니다! 좋게 봐주셔서 힘이 납니다.",
+            "score": 0.3
+          },
+          {
+            "text": "따뜻한 말씀 감사해요 🙂",
+            "score": 0.1
+          }
+        ],
+        "best": "봐주셔서 감사합니다. 다음에도 좋은 내용으로 찾아뵐게요.",
+        "warnings": [],
+        "usage": [
+          {
+            "role": "judge",
+            "provider": "mock-judge",
+            "model": "rules-v1",
+            "ms": 0,
+            "input_tokens": 8,
+            "output_tokens": 0,
+            "cost_usd": 0.0,
+            "ok": true
+          },
+          {
+            "role": "draft",
+            "provider": "mock-drafter",
+            "model": "templates-v1",
+            "ms": 0,
+            "input_tokens": 308,
+            "output_tokens": 32,
+            "cost_usd": 0.0,
+            "ok": true
+          },
+          {
+            "role": "rank",
+            "provider": "mock-judge",
+            "model": "rules-v1",
+            "ms": 0,
+            "input_tokens": 32,
+            "output_tokens": 0,
+            "cost_usd": 0.0,
+            "ok": true
+          }
+        ],
+        "total_ms": 0,
+        "total_cost_usd": 0.0
+      },
+      "draft_direct": {
+        "message_id": "fx07-ig-thanks",
+        "pipeline": "draft_direct",
+        "decision": "draft",
+        "judgment": null,
+        "candidates": [
+          {
+            "text": "메시지 감사합니다. 확인 후 답변드리겠습니다.",
+            "score": null
+          },
+          {
+            "text": "연락 주셔서 감사합니다. 내용 잘 읽었습니다.",
+            "score": null
+          },
+          {
+            "text": "감사합니다! 확인했습니다.",
+            "score": null
+          }
+        ],
+        "best": "메시지 감사합니다. 확인 후 답변드리겠습니다.",
+        "warnings": [],
+        "usage": [
+          {
+            "role": "draft",
+            "provider": "mock-drafter",
+            "model": "templates-v1",
+            "ms": 0,
+            "input_tokens": 308,
+            "output_tokens": 31,
+            "cost_usd": 0.0,
+            "ok": true
+          }
+        ],
+        "total_ms": 0,
+        "total_cost_usd": 0.0
+      }
+    },
+    {
+      "id": "fx08-newsletter",
+      "expect_reply": "no",
+      "expected_actions": [
+        "ignore"
+      ],
+      "judge_first": {
+        "message_id": "fx08-newsletter",
+        "pipeline": "judge_first",
+        "decision": "skip_spam",
+        "judgment": {
+          "needs_reply": 0.05,
+          "reply_now": 0.2,
+          "spam": 0.95,
+          "abusive": 0.03,
+          "intent": "promotion",
+          "sender_wants": "nothing",
+          "best_action": "ignore",
+          "tension": 0.0,
+          "confidence": {
+            "intent": 0.5,
+            "sender_wants": 0.5,
+            "best_action": 0.5,
+            "tension": 0.5
+          }
+        },
+        "candidates": [],
+        "best": null,
+        "warnings": [],
+        "usage": [
+          {
+            "role": "judge",
+            "provider": "mock-judge",
+            "model": "rules-v1",
+            "ms": 0,
+            "input_tokens": 52,
+            "output_tokens": 0,
+            "cost_usd": 0.0,
+            "ok": true
+          }
+        ],
+        "total_ms": 0,
+        "total_cost_usd": 0.0
+      },
+      "draft_direct": {
+        "message_id": "fx08-newsletter",
+        "pipeline": "draft_direct",
+        "decision": "draft",
+        "judgment": null,
+        "candidates": [
+          {
+            "text": "메시지 감사합니다. 확인 후 답변드리겠습니다.",
+            "score": null
+          },
+          {
+            "text": "연락 주셔서 감사합니다. 내용 잘 읽었습니다.",
+            "score": null
+          },
+          {
+            "text": "감사합니다! 확인했습니다.",
+            "score": null
+          }
+        ],
+        "best": "메시지 감사합니다. 확인 후 답변드리겠습니다.",
+        "warnings": [],
+        "usage": [
+          {
+            "role": "draft",
+            "provider": "mock-drafter",
+            "model": "templates-v1",
+            "ms": 0,
+            "input_tokens": 334,
+            "output_tokens": 31,
+            "cost_usd": 0.0,
+            "ok": true
+          }
+        ],
+        "total_ms": 0,
+        "total_cost_usd": 0.0
+      }
+    },
+    {
+      "id": "fx09-grade-complaint",
+      "expect_reply": "yes",
+      "expected_actions": [
+        "escalate",
+        "answer"
+      ],
+      "judge_first": {
+        "message_id": "fx09-grade-complaint",
+        "pipeline": "judge_first",
+        "decision": "draft",
+        "judgment": {
+          "needs_reply": 0.95,
+          "reply_now": 0.8,
+          "spam": 0.05,
+          "abusive": 0.03,
+          "intent": "complaint",
+          "sender_wants": "information",
+          "best_action": "escalate",
+          "tension": 6.0,
+          "confidence": {
+            "intent": 0.5,
+            "sender_wants": 0.5,
+            "best_action": 0.5,
+            "tension": 0.5
+          }
+        },
+        "candidates": [
+          {
+            "text": "불편을 드려 죄송합니다. 관련 내용을 확인 중이며, 확인되는 대로 자세히 안내드리겠습니다.",
+            "score": 0.6
+          },
+          {
+            "text": "말씀 주신 내용 확인했습니다. 정확히 살펴본 뒤 [날짜]까지 답변드리겠습니다.",
+            "score": 0.3
+          },
+          {
+            "text": "의견 감사합니다. 사실관계를 확인한 뒤 공식적으로 회신드리겠습니다.",
+            "score": 0.1
+          }
+        ],
+        "best": "불편을 드려 죄송합니다. 관련 내용을 확인 중이며, 확인되는 대로 자세히 안내드리겠습니다.",
+        "warnings": [
+          "긴장도가 높거나 민감한 건입니다. 후보는 참고만 하고 직접 쓰세요."
+        ],
+        "usage": [
+          {
+            "role": "judge",
+            "provider": "mock-judge",
+            "model": "rules-v1",
+            "ms": 0,
+            "input_tokens": 58,
+            "output_tokens": 0,
+            "cost_usd": 0.0,
+            "ok": true
+          },
+          {
+            "role": "draft",
+            "provider": "mock-drafter",
+            "model": "templates-v1",
+            "ms": 0,
+            "input_tokens": 351,
+            "output_tokens": 64,
+            "cost_usd": 0.0,
+            "ok": true
+          },
+          {
+            "role": "rank",
+            "provider": "mock-judge",
+            "model": "rules-v1",
+            "ms": 0,
+            "input_tokens": 64,
+            "output_tokens": 0,
+            "cost_usd": 0.0,
+            "ok": true
+          }
+        ],
+        "total_ms": 0,
+        "total_cost_usd": 0.0
+      },
+      "draft_direct": {
+        "message_id": "fx09-grade-complaint",
+        "pipeline": "draft_direct",
+        "decision": "draft",
+        "judgment": null,
+        "candidates": [
+          {
+            "text": "메시지 감사합니다. 확인 후 답변드리겠습니다.",
+            "score": null
+          },
+          {
+            "text": "연락 주셔서 감사합니다. 내용 잘 읽었습니다.",
+            "score": null
+          },
+          {
+            "text": "감사합니다! 확인했습니다.",
+            "score": null
+          }
+        ],
+        "best": "메시지 감사합니다. 확인 후 답변드리겠습니다.",
+        "warnings": [],
+        "usage": [
+          {
+            "role": "draft",
+            "provider": "mock-drafter",
+            "model": "templates-v1",
+            "ms": 0,
+            "input_tokens": 351,
+            "output_tokens": 31,
+            "cost_usd": 0.0,
+            "ok": true
+          }
+        ],
+        "total_ms": 0,
+        "total_cost_usd": 0.0
+      }
+    },
+    {
+      "id": "fx10-ig-collab",
+      "expect_reply": "optional",
+      "expected_actions": [
+        "ask_clarification",
+        "acknowledge"
+      ],
+      "judge_first": {
+        "message_id": "fx10-ig-collab",
+        "pipeline": "judge_first",
+        "decision": "draft",
+        "judgment": {
+          "needs_reply": 0.9,
+          "reply_now": 0.2,
+          "spam": 0.05,
+          "abusive": 0.03,
+          "intent": "invitation",
+          "sender_wants": "decision",
+          "best_action": "ask_clarification",
+          "tension": 1.0,
+          "confidence": {
+            "intent": 0.5,
+            "sender_wants": 0.5,
+            "best_action": 0.5,
+            "tension": 0.5
+          }
+        },
+        "candidates": [
+          {
+            "text": "관심 가져주셔서 감사합니다. 원하시는 [범위]와 [일정]을 알려주시면 가능 여부 말씀드리겠습니다.",
+            "score": 0.6
+          },
+          {
+            "text": "연락 주셔서 감사합니다. 검토를 위해 [일정], [대상], [조건]을 조금 더 알려주실 수 있을까요?",
+            "score": 0.3
+          },
+          {
+            "text": "제안 감사합니다. 진행 여부를 판단하려면 [구체적 내용]이 필요합니다. 자료를 보내주시면 검토 후 회신드리겠습니다.",
+            "score": 0.1
+          }
+        ],
+        "best": "관심 가져주셔서 감사합니다. 원하시는 [범위]와 [일정]을 알려주시면 가능 여부 말씀드리겠습니다.",
+        "warnings": [],
+        "usage": [
+          {
+            "role": "judge",
+            "provider": "mock-judge",
+            "model": "rules-v1",
+            "ms": 0,
+            "input_tokens": 33,
+            "output_tokens": 0,
+            "cost_usd": 0.0,
+            "ok": true
+          },
+          {
+            "role": "draft",
+            "provider": "mock-drafter",
+            "model": "templates-v1",
+            "ms": 0,
+            "input_tokens": 333,
+            "output_tokens": 87,
+            "cost_usd": 0.0,
+            "ok": true
+          },
+          {
+            "role": "rank",
+            "provider": "mock-judge",
+            "model": "rules-v1",
+            "ms": 0,
+            "input_tokens": 87,
+            "output_tokens": 0,
+            "cost_usd": 0.0,
+            "ok": true
+          }
+        ],
+        "total_ms": 0,
+        "total_cost_usd": 0.0
+      },
+      "draft_direct": {
+        "message_id": "fx10-ig-collab",
+        "pipeline": "draft_direct",
+        "decision": "draft",
+        "judgment": null,
+        "candidates": [
+          {
+            "text": "메시지 감사합니다. 확인 후 답변드리겠습니다.",
+            "score": null
+          },
+          {
+            "text": "연락 주셔서 감사합니다. 내용 잘 읽었습니다.",
+            "score": null
+          },
+          {
+            "text": "감사합니다! 확인했습니다.",
+            "score": null
+          }
+        ],
+        "best": "메시지 감사합니다. 확인 후 답변드리겠습니다.",
+        "warnings": [],
+        "usage": [
+          {
+            "role": "draft",
+            "provider": "mock-drafter",
+            "model": "templates-v1",
+            "ms": 0,
+            "input_tokens": 333,
+            "output_tokens": 31,
+            "cost_usd": 0.0,
+            "ok": true
+          }
+        ],
+        "total_ms": 0,
+        "total_cost_usd": 0.0
+      }
+    }
+  ]
+}

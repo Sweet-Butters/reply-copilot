@@ -67,6 +67,7 @@ reply_copilot/
     __init__.py    이름 → 공급자 생성 (환경변수로 교체)
   adapters/
     base.py        Adapter 프로토콜: fetch(), stage()
+    google_auth.py Google 설치형 앱 OAuth (토큰은 ~/.reply-copilot/tokens/)
     fixtures.py    eval/fixtures/*.json 을 메시지로
     gmail.py       Gmail 읽기 + 초안 저장(drafts.create). 발송 없음
     youtube.py     내 채널 댓글 읽기(commentThreads.list). 게시 없음 → 대기열
@@ -120,7 +121,7 @@ jarvis/Windows판 질문 세트는 연인·친구 대화용(`confirm_you_care`, 
 
 | 규칙 | 위치 |
 |---|---|
-| 자동 발송 금지 | 발송/게시 API를 호출하는 코드가 없음. `tests/test_safety.py`가 소스 전체에서 `messages().send`, `comments().insert`, `/replies` POST 등을 찾아 실패시킴 |
+| 자동 발송 금지 | 발송/게시 API를 호출하는 코드가 없음. `tests/test_cli_and_safety.py`가 소스 전체에서 `messages().send`, `comments().insert`, `/replies` POST 등을 찾아 실패시킴 |
 | 메일은 초안만 | `adapters/gmail.py: stage()` → `users.drafts.create`. `run`에 `--stage` 를 줘야만 호출, `--dry-run`이면 절대 호출 안 함 |
 | 댓글은 승인 대기열 | `store.enqueue()`만 호출. `review` 명령으로 보고 복사해서 직접 올림 |
 | 내 메일함·내 계정만 | Gmail `userId="me"`, YouTube `channels.list(mine=True)`, Instagram `/me` 만 사용. 남의 채널 ID를 받는 옵션 없음 |
