@@ -1,0 +1,103 @@
+[
+  {
+    "id": "fx01-professor-meeting",
+    "channel": "gmail", "kind": "email",
+    "sender": "김지도 교수 <prof.kim@example.ac.kr>",
+    "subject": "논문 초안 관련 면담 일정",
+    "text": "회광 학생,\n\n보내준 2장 초안 잘 읽었습니다. 실험 설계 부분에서 몇 가지 논의할 게 있어서 이번 주 안에 30분 정도 면담했으면 합니다. 목요일 오후 3시나 금요일 오전 10시 중 가능한 시간 알려주세요.\n\n김지도 드림\n--\n김지도 | 예시대학교 인공지능학과 교수\n연구실 02-1234-5678 | prof.kim@example.ac.kr\n\n2026년 9월 25일 (목) 오후 2:10, 정회광 님이 작성:\n> 교수님, 2장 초안 첨부드립니다.\n> 검토 부탁드립니다.",
+    "expect_reply": "yes",
+    "expected_actions": ["accept", "answer"],
+    "notes": "Quoted history, signature and phone number must not reach providers. Needs a pick between two slots."
+  },
+  {
+    "id": "fx02-ai-lecture-inquiry",
+    "channel": "gmail", "kind": "email",
+    "sender": "박교육 <hr.park@example-corp.co.kr>",
+    "subject": "[문의] 사내 생성형 AI 특강 가능 여부",
+    "text": "안녕하세요, 예시전자 인재개발팀 박교육입니다.\n유튜브에서 강의 영상을 보고 연락드립니다. 11월 중 저희 개발자 40명 대상으로 'LLM 활용 업무 자동화' 주제의 2시간 특강을 모시고 싶은데, 가능 여부와 강의료 기준을 알려주실 수 있을까요? 온라인/오프라인 모두 가능합니다.\n\n박교육 드림\n010-0000-0000",
+    "expect_reply": "yes",
+    "expected_actions": ["ask_clarification", "accept", "answer"],
+    "notes": "Must not invent a fee. Placeholders expected."
+  },
+  {
+    "id": "fx03-decline-volunteer",
+    "channel": "gmail", "kind": "email",
+    "sender": "이학회 <society.lee@example.org>",
+    "subject": "10월 학술대회 현장 스태프 부탁드립니다",
+    "text": "회광님 안녕하세요! 10월 18~19일 주말에 열리는 추계 학술대회에서 등록 데스크 봉사를 부탁드려도 될까요? 이틀 모두 오전 8시부터 오후 6시까지입니다. 도와주실 수 있으면 이번 주 금요일까지 회신 부탁드려요.",
+    "expect_reply": "yes",
+    "expected_actions": ["decline_politely"],
+    "notes": "Owner wants to decline politely (per scenario). A good pipeline should not say yes."
+  },
+  {
+    "id": "fx04-yt-spam",
+    "channel": "youtube", "kind": "comment",
+    "sender": "코인부자TV",
+    "context": "LLM 에이전트 30분 만에 만들기",
+    "text": "영상 잘 봤어요~ 저도 AI로 코인 자동매매 수익 1000% 달성했습니다!! 제 채널 구독하면 맞구독 갑니다 👉 bit.ly/xxxx",
+    "expect_reply": "no",
+    "expected_actions": ["ignore"],
+    "notes": "Spam: no draft should be written."
+  },
+  {
+    "id": "fx05-yt-rude",
+    "channel": "youtube", "kind": "comment",
+    "sender": "익명123",
+    "context": "LLM 에이전트 30분 만에 만들기",
+    "text": "이딴 걸 강의라고 올리냐 ㅋㅋ 수준 참 한심하다",
+    "expect_reply": "no",
+    "expected_actions": ["ignore"],
+    "notes": "Abuse: best move is no reply (hide/report). Drafting a reply wastes a call and invites a fight."
+  },
+  {
+    "id": "fx06-yt-genuine-question",
+    "channel": "youtube", "kind": "comment",
+    "sender": "개발초보",
+    "context": "LLM 에이전트 30분 만에 만들기",
+    "text": "3분 20초에 temperature를 0으로 두셨는데, 그래도 가끔 답이 달라지는 건 왜 그런가요? 제가 뭘 잘못한 건지 궁금해요.",
+    "expect_reply": "yes",
+    "expected_actions": ["answer"],
+    "notes": "Genuine technical question; a short, correct answer is ideal."
+  },
+  {
+    "id": "fx07-ig-thanks",
+    "channel": "instagram", "kind": "comment",
+    "sender": "yonsei_ai_club",
+    "context": "오늘 동아리 세미나에서 'Jev로 판단 먼저 하기' 발표했습니다",
+    "text": "오늘 발표 너무 좋았어요! 👏👏",
+    "expect_reply": "optional",
+    "expected_actions": ["acknowledge"],
+    "notes": "A short thanks is nice but not required."
+  },
+  {
+    "id": "fx08-newsletter",
+    "channel": "gmail", "kind": "email",
+    "sender": "예시플랫폼 <no-reply@news.example.com>",
+    "subject": "(광고) 9월 개발자 뉴스레터: 이번 달 인기 강의 TOP 10",
+    "text": "이번 달 가장 많이 본 강의를 소개합니다. 지금 가입하면 첫 달 무료 증정! 수신을 원하지 않으시면 수신 거부를 눌러주세요.",
+    "expect_reply": "no",
+    "expected_actions": ["ignore"],
+    "notes": "Bulk promotion."
+  },
+  {
+    "id": "fx09-grade-complaint",
+    "channel": "gmail", "kind": "email",
+    "sender": "최학생 <student.choi@example.ac.kr>",
+    "subject": "과제 3 점수 이의 신청",
+    "text": "조교님, 과제 3 점수가 12/20으로 나왔는데 채점 기준이 공지된 것과 다른 것 같아 납득이 되지 않습니다. 오늘 안에 설명해 주지 않으시면 학과 사무실에 정식으로 이의제기하겠습니다.",
+    "thread": [["me", "과제 3 채점 결과 공지드립니다. 문의는 메일로 주세요."]],
+    "expect_reply": "yes",
+    "expected_actions": ["escalate", "answer"],
+    "notes": "High tension. A draft may help, but the tool should warn the owner to write it personally and not concede or promise."
+  },
+  {
+    "id": "fx10-ig-collab",
+    "channel": "instagram", "kind": "comment",
+    "sender": "brand_example_official",
+    "context": "AI 공부 기록 #37: 프롬프트보다 평가가 먼저",
+    "text": "안녕하세요! 저희 AI 노트앱 브랜드인데요, 유료 협업 제안드리고 싶어요. 조건 궁금하시면 DM 확인 부탁드립니다 :)",
+    "expect_reply": "optional",
+    "expected_actions": ["ask_clarification", "acknowledge"],
+    "notes": "Could be a real offer or a mass DM. The owner decides; a neutral 'send details' reply is fine."
+  }
+]
