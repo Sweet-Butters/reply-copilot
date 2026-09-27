@@ -1,0 +1,20 @@
+[project]
+name = "reply-copilot"
+version = "0.1.0"
+description = "Judge-first reply drafts for your own Gmail and SNS comments. Never sends."
+requires-python = ">=3.10"
+dependencies = []  # the core, mock providers and eval run on the standard library alone
+
+[project.optional-dependencies]
+google = ["google-api-python-client>=2.100", "google-auth-oauthlib>=1.2"]
+anthropic = ["anthropic>=0.60"]
+dev = ["pytest>=8"]
+
+[project.scripts]
+reply-copilot = "reply_copilot.cli:main"
+
+[tool.setuptools]
+packages = ["reply_copilot", "reply_copilot.providers", "reply_copilot.adapters"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
